@@ -10,7 +10,7 @@ import logging
 
 import numpy as np
 import scipy.sparse as sp
-from sklearn.cross_validation import ShuffleSplit
+from sklearn.model_selection import ShuffleSplit
 from sklearn.decomposition import TruncatedSVD
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
@@ -83,12 +83,12 @@ def evaluate_cf_model(model, feature_matrix, train_user_ids, train_item_ids, tra
     test_iid_dict = collections.defaultdict(lambda: array.array('i'))
 
     # Gather training data in user-sized chunks
-    for i, (uid, iid, y) in enumerate(itertools.izip(train_user_ids, train_item_ids, train_data)):
+    for i, (uid, iid, y) in enumerate(zip(train_user_ids, train_item_ids, train_data)):
         train_y_dict[uid].append(y)
         train_iid_dict[uid].append(iid)
 
     # Gather test data in user-sized chunks
-    for i, (uid, iid, y) in enumerate(itertools.izip(test_user_ids, test_item_ids, test_data)):
+    for i, (uid, iid, y) in enumerate(zip(test_user_ids, test_item_ids, test_data)):
         test_y_dict[uid].append(y)
         test_iid_dict[uid].append(iid)
 

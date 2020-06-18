@@ -91,7 +91,7 @@ class Features(object):
             lrepr[i] = np.sum(latent_representations[row.indices], axis=0)
 
         self.lrepr = lrepr
-        self.inverse_title_mapping = {v: k for k, v in self.title_mapping.iteritems()}
+        self.inverse_title_mapping = {v: k for k, v in self.title_mapping.items()}
 
     def most_similar_movie(self, title, number=5):
 
@@ -141,7 +141,7 @@ class Interactions(object):
                          randomly sampled for the pids_sample_pool will be included.
         """
 
-        for user_id, user_data in self.user_data.iteritems():
+        for user_id, user_data in self.user_data.items():
 
             positives = user_data.get(1, [])
             raw_negatives = user_data.get(0, [])

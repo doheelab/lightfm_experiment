@@ -10,7 +10,7 @@ import logging
 
 import numpy as np
 import scipy.sparse as sp
-from sklearn.cross_validation import ShuffleSplit
+from sklearn.model_selection import ShuffleSplit
 from sklearn.decomposition import TruncatedSVD
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score

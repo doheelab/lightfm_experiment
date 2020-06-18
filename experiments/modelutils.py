@@ -8,7 +8,7 @@ import logging
 
 import numpy as np
 import scipy.sparse as sp
-from sklearn.cross_validation import ShuffleSplit
+from sklearn.model_selection import ShuffleSplit
 from sklearn.metrics import roc_auc_score
 
 from experiments.cf_model import CFModel, evaluate_cf_model
@@ -41,9 +41,10 @@ class StratifiedSplit(object):
         self.test_size = test_size
         self.cold_start = cold_start
 
-        self.shuffle_split = ShuffleSplit(self.no_interactions,
-                                          n_iter=self.n_iter,
-                                          test_size=self.test_size)
+        self.shuffle_split = ShuffleSplit(test_size=self.test_size)
+        #self.shuffle_split = ShuffleSplit(self.no_interactions,
+        #                                  n_iter=self.n_iter,
+        #                                  test_size=self.test_size)
 
     def _cold_start_iterations(self):
         """
@@ -76,10 +77,12 @@ class StratifiedSplit(object):
 
     def __iter__(self):
 
-        if self.cold_start:
-            splits = self._cold_start_iterations()           
-        else:
-            splits = self.shuffle_split
+        #if self.cold_start:
+        #    splits = self._cold_start_iterations()           
+        #else:
+        #    splits = self.shuffle_split
+        
+        splits = self._cold_start_iterations()
 
         for train, test in splits:
 
@@ -147,6 +150,7 @@ def fit_model(interactions, item_features_matrix,
     """
     Fits the model provided by modelfnc.
     """
+    
 
     kf = StratifiedSplit(interactions.user_id, interactions.item_id,
                          n_iter=n_iter, test_size=test_size, cold_start=cold_start)
