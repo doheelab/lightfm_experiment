@@ -6,20 +6,19 @@ ids: 제목
 
 ## LightFM (tags)
 
-score : 0.663066
-user_ids (69878)
-item_ids (10681)
-item_features_matrix (10681, 1010)
-interactions (69878, 10681)
+1. score : 0.663066
+2. user_ids (69878)
+3. item_ids (10681)
+4. item_features_matrix (10681, 1010)
+5. interactions (69878, 10681)
 
 ## LightFM (tags + ids)
 
-score : 0.699208
-
-user_ids (69878)
-item_ids (10681)
-item_features_matrix (10681, 11689)
-interactions (69878, 10681)
+1. score : 0.699208
+2. user_ids (69878)
+3. item_ids (10681)
+4. item_features_matrix (10681, 11689)
+5. interactions (69878, 10681)
 
 
 

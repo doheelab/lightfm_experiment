@@ -290,7 +290,7 @@ parser.add_argument('-n', '--niter', action='store',
 
 cold=True
 dim=[50]
-ids=True # ids=False
+ids=False # ids=False
 tags=True
 lsi=False
 niter=5
@@ -412,6 +412,7 @@ for i, (train, test) in enumerate(kf):
         print('Epoch %s, test AUC %s, train AUC %s', x, test_auc, train_auc)
 
         if previous_auc > test_auc:
+            print("pre: %s, current: %s", previous_auc, test_auc)
             break
 
         previous_auc = test_auc
@@ -426,9 +427,13 @@ for i, (train, test) in enumerate(kf):
 
 #%%
 
+train_predictions = model.predict(interactions.user_id[train],
+                                  interactions.item_id[train],
+                                  user_features=user_features,
+                                  item_features=item_features,
+                                  num_threads=4)
 
-
-
-
-
-
+model.get_item_representations()[0].shape
+model.get_item_representations()[1].shape
+model.get_user_representations()[0].shape
+model.get_user_representations()[1].shape
