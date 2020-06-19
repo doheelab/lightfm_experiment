@@ -1,3 +1,29 @@
+# movielense 모델
+
+tags: 테그 (from genome)
+ids: 제목
+
+
+## LightFM (tags)
+
+score : 0.663066
+user_ids (69878)
+item_ids (10681)
+item_features_matrix (10681, 1010)
+interactions (69878, 10681)
+
+## LightFM (tags + ids)
+
+score : 0.699208
+
+user_ids (69878)
+item_ids (10681)
+item_features_matrix (10681, 11689)
+interactions (69878, 10681)
+
+
+
+
 # Metadata Embeddings for User and Item Cold-start Recommendations 
 
 Pre-print available on [arXiv](http://arxiv.org/abs/1507.08439). 

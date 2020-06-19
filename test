@@ -1,0 +1,1 @@
+ipython -- experiments/movielens/model.py --dim 50 --lsi --tags --ids --split 0.2 (0.690)
